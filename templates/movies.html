@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电影</title>
+    <link rel="stylesheet" href="./static/assets/js/bootstrap.min.css">
+    <!-- 引入 echarts.js -->
+    <script src="./static/assets/js/echarts.min.js"></script>
+    <script src="./static/assets/js/jquery-3.3.1.min.js"></script>
+    <script src="./static/assets/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+        /*----------------------------------------
+            页脚
+            ------------------------------------*/
+        footer {
+            background: #333;
+            color: #eee;
+            font-size: 11px;
+            padding: 20px;
+        }
+        ul.unstyled {
+            list-style: none;
+            padding: 0;
+        }
+        footer h6 {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <ul class="nav nav-pills">
+          <li role="presentation" class="active"><a href="/index">首页</a></li>
+          <li role="presentation"><a href="/movies">电影</a></li>
+          <li role="presentation"><a href="/score">评分</a></li>
+            <li role="presentation"><a href="/ciyun">词云</a></li>
+        </ul>
+      </div>
+    </nav>
+    <section class="counts section-bg">
+      <div class="container">
+          <table class="table table-striped">
+              <tr>
+                  <td>排名</td>
+                  <td>电影中文名称</td>
+                  <td>评分</td>
+                  <td>评价人数</td>
+                  <td>一句话概述</td>
+                  <td>上映时间</td>
+                  <td>地区</td>
+                  <td>分类</td>
+              </tr>
+              {% for movie in movies %}
+              <tr>
+                  <td>{{movie[0]}}</td>
+                  <td>
+                      <a href="{{ movie[1] }}" target="_blank">
+                      {{ movie[3] }}
+                        </a>
+                  </td>
+                  <td>{{movie[4]}}</td>
+                  <td>{{movie[5]}}</td>
+                  <td>{{movie[6]}}</td>
+                  <td>{{movie[7]}}</td>
+                  <td>{{movie[8]}}</td>
+                  <td>{{movie[9]}}</td>
+              </tr>
+              {% endfor %}
+          </table>
+        </div>
+    </section><!-- End Counts Section -->
+    <nav aria-label="Page navigation" style="text-align: center">
+      <ul class="pagination">
+        <li>
+          <a href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li>
+          <a href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2">
+                    <h6>Copyright &copy;bootstrap</h6>
+                </div>
+
+                <div class="col-sm-4">
+                    <h6>关于我们</h6>
+                    <p>
+                        中国南昌/2021年8月19日 — 服务于中国及全球华人社群的领先在线媒体公司公司(NASDAQ GS: SINA)今日公布了截至2021年8月19日的第二季度未经审计的财务报告。
+                    </p>
+                </div>
+
+                <div class="col-sm-2">
+                    <h6>导航</h6>
+                    <ul class="unstyled">
+                        <li><a href="/index">主页</a></li>
+                        <li><a href="/index">服务</a></li>
+                        <li><a href="#">链接</a></li>
+                        <li><a href="#">联系我们</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-2">
+                    <h6>Follow us</h6>
+                    <ul class="unstyled">
+                        <li><a href="">微博</a></li>
+                        <li><a href="">微信</a></li>
+                        <li><a href="">来往</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-2">
+                    <h6>本网站由<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>Sina制作</h6>
+                    <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+                </div>
+            </div>
+        </div>
+    </footer><!--页脚结束-->
+</body>
+</html>
